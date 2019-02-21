@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      background: #f9f9f9;
+      padding: 10px;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .me,
+    .members-list,
+    .messages,
+    .rooms {
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .label {
+      text-transform: uppercase;
+      font-size: 12px;
+      color: gray;
+    }
+
+    .messages {
+      flex-shrink: 1;
+      flex-grow: 1;
+      overflow: auto;
+    }
+
+    .message {
+      padding: 5px 0;
+    }
+    .message .member {
+      display: inline-block;
+    }
+
+    .member,
+    .room {
+      padding-right: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+    .member:hover,
+    .room:hover {
+      text-decoration: underline;
+    }
+
+    .message-form,
+    .chat-title {
+      display: flex;
+      flex-shrink: 0;
+      background: #e0e0e0;
+      padding: 10px;
+    }
+    .message-form__input {
+      flex-grow: 1;
+      border: 1px solid #dfdfdf;
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+    .message-form__button {
+      margin: 10px 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <div class="label">Your name</div>
+    <div class="me"></div>
+    <div class="label">Public rooms</div>
+    <div class="rooms">
+      <div class="room">Global public room</div>
+    </div>
+    <div class="label">Connected users</div>
+    <div class="members-list"></div>
+  </div>
+  <div class="right">
+    <div class="chat-title">Global public room</div>
+    <div class="messages"></div>
+    <form class="message-form" onsubmit="return false;">
+      <input class="message-form__input" placeholder="Type a message.." type="text"/>
+      <input class="message-form__button" value="Send" type="submit"/>
+    </form>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>
