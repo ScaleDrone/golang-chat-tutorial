@@ -82,12 +82,12 @@ func auth(w http.ResponseWriter, r *http.Request) {
 				Subscribe: true, // allow subscribing to public chatroom
 			},
 			userPrivateRoomRegex: permissionClaims{
-				Publish:   true, // no need to publish to ourselves
-				Subscribe: true, // allow subscribing to private messages
+				Publish:   false, // no need to publish to ourselves
+				Subscribe: true,  // allow subscribing to private messages
 			},
 			otherUsersPrivateRoomsRegex: permissionClaims{
-				Publish:   true, // allow publishing to other users
-				Subscribe: true, // don't allow subscribing to messages sent to other users
+				Publish:   true,  // allow publishing to other users
+				Subscribe: false, // don't allow subscribing to messages sent to other users
 			},
 		},
 	}
